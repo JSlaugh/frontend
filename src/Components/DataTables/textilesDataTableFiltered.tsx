@@ -345,7 +345,7 @@ function Table({ columns, data }) {
     <div className="ScrollCentral">
       <h2>Textile Filter</h2>
       <p className="card-subtitle">
-        This DataTable Allows you to sort by Textiles
+        This DataTable allows you to sort through Textiles
       </p>
       <table {...getTableProps()}>
         <thead>
@@ -456,101 +456,72 @@ filterGreaterThan.autoRemove = (val: any) => typeof val !== 'number';
 function TextilesDataTableFilter() {
   const test = [
     {
-      // Build our expander column
-      id: 'expander', // Make sure it has an ID
-      Header: ({ getToggleAllRowsExpandedProps, isAllRowsExpanded }) => (
-        <span {...getToggleAllRowsExpandedProps()}>
-          {isAllRowsExpanded ? '👇' : '👉'}
-        </span>
-      ),
-      Cell: ({ row }) =>
-        // Use the row.canExpand and row.getToggleRowExpandedProps prop getter
-        // to build the toggle for expanding a row
-        row.canExpand ? (
-          <span
-            {...row.getToggleRowExpandedProps({
-              style: {
-                // We can even use the row.depth property
-                // and paddingLeft to indicate the depth
-                // of the row
-                paddingLeft: `${row.depth * 2}rem`,
-              },
-            })}
-          >
-            {row.isExpanded ? '👇' : '👉'}
-          </span>
-        ) : null,
+      Header: 'Textile',
+      columns: [
+        {
+          Header: 'ID or Locale',
+          accessor: 'locale',
+        },
+        {
+          Header: 'Color',
+          accessor: 'colorValue',
+        },
+        {
+          Header: 'Structure',
+          accessor: 'structureValue',
+        },
+        {
+          Header: 'Decoration',
+          accessor: 'decorationValue',
+        },
+        {
+          Header: 'Dimension',
+          accessor: 'dimensionValue',
+        },
+        {
+          Header: 'Textile Function',
+          accessor: 'textileFunctionsValue',
+        },
+        {
+          Header: 'Analysis Type',
+          accessor: 'analysistype',
+        },
+        {
+          Header: 'Date Analyzed ',
+          accessor: 'analysisDate',
+        },
+      ],
     },
     {
       Header: 'Burial',
       columns: [
         {
-          Header: 'ID or Locale',
-          accessor: 'burialid',
+          Header: 'Burial ID',
+          accessor: 'burialMainId',
         },
         {
           Header: 'Depth',
-          accessor: 'depth',
+          accessor: 'burialDepth',
         },
         {
           Header: 'Sex',
-          accessor: 'sex',
-        },
-        {
-          Header: 'Depth',
-          accessor: 'adultsubadult',
+          accessor: 'burialSex',
         },
         {
           Header: 'Age at Death',
-          accessor: 'ageatdeath',
+          accessor: 'burialAgeDeath',
         },
         {
           Header: 'Head Direction',
-          accessor: 'headdirection',
+          accessor: 'burialHeadDirection',
         },
         {
-          Header: 'Head Direction',
-          accessor: 'haircolor',
-        },
-      ],
-    },
-    {
-      Header: 'Textile',
-      columns: [
-        {
-          Header: 'Color',
-          accessor: 'colorValue',
-          disableFilters: true,
+          Header: 'Hair Color',
+          accessor: 'burialHairColor',
         },
         {
-          Header: 'Structure',
-          accessor: 'structureValue',
-          disableFilters: true,
-        },
-        {
-          Header: 'Decoration',
-          accessor: 'decorationValue',
-          disableFilters: true,
-        },
-        {
-          Header: 'Dimension',
-          accessor: 'dimensionValue',
-          disableFilters: true,
-        },
-        {
-          Header: 'Textile Function',
-          accessor: 'textileFunctionsValue',
-          disableFilters: true,
-        },
-        {
-          Header: 'Analysis Type',
-          accessor: 'analysistype',
-          disableFilters: true,
-        },
-        {
-          Header: 'Date Analyzed ',
-          accessor: 'analysisDate',
-          disableFilters: true,
+          Header: 'Face Bundles',
+          accessor: 'facebundles',
         },
       ],
     },
@@ -604,7 +575,6 @@ function TextilesDataTableFilter() {
           el.burialAgeDeath = tempElement.ageatdeath;
           el.burialHeadDirection = tempElement.headdirection;
           el.burialHairColor = tempElement.haircolor;
-          el.burialText = tempElement.text;
           el.facebundles = tempElement.facebundles;
         }
       });

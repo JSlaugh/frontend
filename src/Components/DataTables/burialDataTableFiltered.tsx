@@ -1,5 +1,6 @@
 // @ts-nocheck
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { useEffect, useState, useMemo, useSyncExternalStore } from 'react';
 import {
   useTable,
@@ -59,7 +60,7 @@ const Styles = styled.div`
 
 // Define a default UI for filtering
 function GlobalFilter({
-  // @ts-expect-error:
+  // @ts-expect-error:F
 
   preGlobalFilteredRows,
   // @ts-expect-error:
@@ -487,6 +488,14 @@ function BurialDataTableFiltered() {
         {
           Header: 'ID or Locale',
           accessor: 'burialid',
+          Cell: ({ row }) => (
+            <Link
+              to="/tools/viewBurialSingle"
+              state={{ burialData: row.original }}
+            >
+              {row.original.burialid}
+            </Link>
+          ),
         },
         {
           Header: 'Depth',
