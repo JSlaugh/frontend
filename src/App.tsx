@@ -7,6 +7,8 @@ import InfoPage from './Components/Admin/infoPage';
 import Layout from './Components/Admin/layout';
 import BurialDataTableFiltered from './Components/DataTables/burialDataTableFiltered';
 import TextilesDataTableFilter from './Components/DataTables/textilesDataTableFiltered';
+import BurialForm from './Components/Crud/burialForm';
+import TextileForm from './Components/Crud/textileForm';
 import BurialView from './Components/ViewSingle/burialView';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Styles/styles.css';
@@ -22,6 +24,14 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/tools" element={<Layout />}>
           <Route path="/tools" element={<InfoPage />}></Route>
+          <Route
+            path="/tools/burialForm"
+            element={<BurialForm />}
+          ></Route>
+          <Route
+            path="/tools/textileForm"
+            element={<TextileForm />}
+          ></Route>
           <Route
             path="/tools/burialFilterTable"
             element={<BurialDataTableFiltered />}
