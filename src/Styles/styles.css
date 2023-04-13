@@ -1,0 +1,153 @@
+/* Styles */
+h1 {
+  font-family: fantasy;
+  font-weight: 900;
+}
+
+.heroImage {
+  height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+  background-size: cover;
+  background-position: bottom;
+}
+
+:root {
+  /* Still water blue */
+  --still-water-blue: #178787;
+
+  /* Wave Blue */
+  --wave-blue: #03045e;
+  /* Island Sky */
+  --island-sky: #0f8ed8;
+  /* Sun Yellow */
+  --sun-yellow: #ffb703;
+
+  /* Button*/
+  --Button-color: #0d161c;
+
+  --checkbox-size: 28px;
+  --font-color: #555;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.hero {
+  height: 100vh;
+  position: relative;
+}
+
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-size: clamp(1rem, 0.3704rem + 5.7037vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  padding: 1rem 1rem 2rem;
+  margin: 0;
+
+  color: #fff;
+  mix-blend-mode: screen;
+}
+
+img {
+  width: 100%;
+  display: block;
+  min-height: auto;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 1.5rem 0.5rem 1.5rem 0.5rem;
+}
+.cardPerson {
+  position: relative;
+}
+
+.cardPerson img {
+  border-radius: 12px;
+}
+
+.cardPerson .overlay {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 4rem;
+  line-height: 0.5s;
+  padding: 5% 0.5rem 0;
+  border-radius: 12px;
+  margin: 0;
+
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+.cardPerson:hover .overlay {
+  opacity: 1;
+}
+
+@media (min-width: 560px) {
+  .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .cardPerson {
+    flex: 1 1 40%;
+  }
+  .cardPerson .overlay {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .cardPerson {
+    flex: 1 1 31.5%;
+  }
+  .cardPerson .overlay {
+    font-size: 2.5rem;
+  }
+  ul {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .panel .image-wrap {
+    flex: 1 1 40%;
+  }
+
+  .panel .text-warp {
+    flex: 1 1 60%;
+  }
+
+  .cards {
+    max-width: 90%;
+    margin: auto;
+  }
+}
+
+.centerContent {
+  margin: auto;
+}
