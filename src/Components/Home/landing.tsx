@@ -1,6 +1,6 @@
-import '../../Styles/Landing/styles.css';
-import $ from 'jquery';
-import ReactCookieConsent from 'react-cookie-consent';
+import "../../Styles/Landing/styles.css";
+import $ from "jquery";
+import ReactCookieConsent from "react-cookie-consent";
 function Home() {
   return (
     <div className="">
@@ -90,16 +90,6 @@ function Home() {
           <div className="cardPerson">
             <a>
               <img
-                src="images\AnneWerkt.jpg"
-                loading="lazy"
-                alt="Anne Kwaspen"
-              />
-              <p className="overlay">Anne Kwaspen</p>
-            </a>
-          </div>
-          <div className="cardPerson">
-            <a>
-              <img
                 src="images\CaseySaqqara.jpg"
                 loading="lazy"
                 alt="Dr. Casey Kirkpatrick"
@@ -107,7 +97,16 @@ function Home() {
               <p className="overlay">Dr. Casey Kirkpatrick</p>
             </a>
           </div>
-
+          <div className="cardPerson">
+            <a>
+              <img
+                src="images\AnneWerkt.jpg"
+                loading="lazy"
+                alt="Anne Kwaspen"
+              />
+              <p className="overlay">Anne Kwaspen</p>
+            </a>
+          </div>
           <div className="cardPerson">
             <a>
               <img
@@ -309,7 +308,7 @@ function Home() {
         <div className="container">
           <small>
             Brigham Young University &copy; Provo, UT 84602, USA | 801-422-4636
-            |{' '}
+            |{" "}
             <a
               href="https://www.privacypolicies.com/live/bccfad04-3419-49b7-9627-33976d216684"
               target="_blank"
@@ -317,7 +316,7 @@ function Home() {
               className="text-muted"
             >
               Privacy Policy
-            </a>{' '}
+            </a>{" "}
             | 2023 © All Rights Reserved
           </small>
         </div>
@@ -326,22 +325,21 @@ function Home() {
       <ReactCookieConsent
         location="bottom"
         buttonClasses="btn btn-primary"
-        buttonText="I UnderstandAccept"
+        buttonText="I Understand/Accept"
         cookieName="cookieConsent"
-        style={{ background: '#333', color: '#fff' }}
-        buttonStyle={{ background: '#f8f8f8', color: '#333', fontSize: '13px' }}
+        style={{ background: "#333", color: "#fff" }}
+        buttonStyle={{ background: "#f8f8f8", color: "#333", fontSize: "13px" }}
         // this makes the expiration one minute for the cookie
         expires={1 / 24 / 60}
-        overlay
       >
         This website uses cookies to ensure you get the best experience on our
-        website.{' '}
+        website.{" "}
         <a
           href="https://www.privacypolicies.com/live/bccfad04-3419-49b7-9627-33976d216684"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn more
+          Read Privacy Policy
         </a>
       </ReactCookieConsent>
     </div>

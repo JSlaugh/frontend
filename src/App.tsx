@@ -13,6 +13,9 @@ import BurialView from './Components/ViewSingle/burialView';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Styles/styles.css';
 import { param } from 'jquery';
+import Unsupervised from "./Components/machineLearning/unsupervised";
+import Supervised from "./Components/machineLearning/supervised";
+
 function App() {
   const location = useLocation();
   console.log(location);
@@ -24,6 +27,8 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/tools" element={<Layout />}>
           <Route path="/tools" element={<InfoPage />}></Route>
+          <Route path="/tools/unsupervised" element={<Unsupervised />}></Route>
+          <Route path="/tools/supervised" element={<Supervised />}></Route>
           <Route
             path="/tools/burialForm"
             element={<BurialForm />}
