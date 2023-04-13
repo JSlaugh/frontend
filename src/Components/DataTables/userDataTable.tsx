@@ -15,7 +15,7 @@ import {
 import { matchSorter } from 'match-sorter';
 import { Burialmain } from '../../Models/burialmain';
 import { forEachChild } from 'typescript';
-import { Textile } from '../../Models/textile';
+import { User } from '../../Models/user';
 
 const Styles = styled.div`
   padding: 1rem;
@@ -344,7 +344,7 @@ function Table({ columns, data }) {
   // it for this use case
 
   return (
-    <div className="ScrollCentral">
+    <div className="">
       <h2>Textile Filter</h2>
       <p className="card-subtitle">
         This DataTable allows you to sort through Textiles
@@ -455,83 +455,26 @@ function filterGreaterThan(rows: any, id: any, filterValue: any) {
 // check, but here, we want to remove the filter if it's not a number
 filterGreaterThan.autoRemove = (val: any) => typeof val !== 'number';
 
-function TextilesDataTableFilter() {
+function UsersDataTableFilter() {
   const test = [
     {
       Header: 'Textile',
       columns: [
         {
           Header: 'Locale',
-          accessor: 'locale',
-          Cell: ({ row }) => (
-            <Link
-              to="/tools/viewTextileSingle"
-              state={{ textileData: row.original }}
-            >
-              {row.original.locale}
-            </Link>
-          ),
+          accessor: 'id',
         },
         {
-          Header: 'Color',
-          accessor: 'colorValue',
+          Header: 'Locale',
+          accessor: 'firstName',
         },
         {
-          Header: 'Structure',
-          accessor: 'structureValue',
+          Header: 'Locale',
+          accessor: 'roleName',
         },
         {
-          Header: 'Decoration',
-          accessor: 'decorationValue',
-        },
-        {
-          Header: 'Dimension',
-          accessor: 'dimensionValue',
-        },
-        {
-          Header: 'Textile Function',
-          accessor: 'textileFunctionsValue',
-        },
-        {
-          Header: 'Analysis Type',
-          accessor: 'analysistype',
-        },
-        {
-          Header: 'Date Analyzed ',
-          accessor: 'analysisDate',
-        },
-      ],
-    },
-    {
-      Header: 'Burial',
-      columns: [
-        {
-          Header: 'Burial ID',
-          accessor: 'burialMainId',
-        },
-        {
-          Header: 'Depth',
-          accessor: 'burialDepth',
-        },
-        {
-          Header: 'Sex',
-          accessor: 'burialSex',
-        },
-        {
-          Header: 'Age at Death',
-          accessor: 'burialAgeDeath',
-        },
-        {
-          Header: 'Head Direction',
-          accessor: 'burialHeadDirection',
-        },
-        {
-          Header: 'Hair Color',
-          accessor: 'burialHairColor',
-        },
-        {
-          Header: 'Face Bundles',
-          accessor: 'facebundles',
+          Header: 'Locale',
+          accessor: 'email',
         },
       ],
     },
@@ -540,52 +483,21 @@ function TextilesDataTableFilter() {
   //Plug in the headers here for dynamic Filtering
   const columns = useMemo(() => test, []);
 
-  const [data, setData] = useState<Textile[]>([]);
+  const [data, setData] = useState<User[]>([]);
   // Pull from database
   useEffect(() => {
     const fetchMovie = async () => {
       const rsp = await fetch(
-        'https://localhost:4000/api/Fagelgamous/getAllTextiles',
+        'https://localhost:4000/api/Authorization/getAllUsers',
       );
       let temp = await rsp.json();
       console.log(temp);
+
       temp.forEach((el) => {
-        if (el.mainAnalyses.length > 0) {
-          console.log(el.mainAnalyses);
-          let tempElement = el.mainAnalyses[0];
-          el.analysistype = tempElement.analysistype;
-          el.analysisDate = tempElement.date;
-        }
-        if (el.mainColors.length > 0) {
-          let tempElement = el.mainColors[0];
-          el.colorValue = tempElement.value;
-        }
-        if (el.mainDecorations.length > 0) {
-          let tempElement = el.mainDecorations[0];
-          el.decorationValue = tempElement.value;
-        }
-        if (el.mainDimensions.length > 0) {
-          let tempElement = el.mainDimensions[0];
-          el.dimensiontype = tempElement.dimenstiontype;
-          el.dimensionValue = tempElement.value;
-        }
-        if (el.mainStructures.length > 0) {
-          let tempElement = el.mainStructures[0];
-          el.structureValue = tempElement.value;
-        }
-        if (el.mainTextilefunctions.length > 0) {
-          let tempElement = el.mainTextilefunctions[0];
-          el.textileFunctionsValue = tempElement.value;
-        }
-        if (el.mainBurialmains.length > 0) {
-          let tempElement = el.mainBurialmains[0];
-          el.burialMainId = tempElement.burialid;
-          el.burialDepth = tempElement.depth;
-          el.burialSex = tempElement.sex;
-          el.burialAgeDeath = tempElement.ageatdeath;
-          el.burialHeadDirection = tempElement.headdirection;
-          el.burialHairColor = tempElement.haircolor;
-          el.facebundles = tempElement.facebundles;
+        if (el.role) {
+          let tempElement = el.role;
+          el.roleName = tempElement.roleName;
+          delete el.role;
         }
       });
       console.log(temp);
@@ -603,4 +515,4 @@ function TextilesDataTableFilter() {
   );
 }
 
-export default TextilesDataTableFilter;
+export default UsersDataTableFilter;

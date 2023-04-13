@@ -8,9 +8,13 @@ import Layout from './Components/Admin/layout';
 import BurialDataTableFiltered from './Components/DataTables/burialDataTableFiltered';
 import TextilesDataTableFilter from './Components/DataTables/textilesDataTableFiltered';
 import BurialView from './Components/ViewSingle/burialView';
+import TextileView from './Components/ViewSingle/textileViewSingle';
+import EditBurialSingle from './Crud2/editBurialSingle';
+import EditTextileSingle from './Crud2/editTextileSingle';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Styles/styles.css';
 import { param } from 'jquery';
+import UsersDataTableFilter from './Components/DataTables/userDataTable';
 function App() {
   const location = useLocation();
   console.log(location);
@@ -32,7 +36,23 @@ function App() {
           ></Route>
           <Route
             path="/tools/viewBurialSingle"
-            element={<BurialView />}
+            element={<BurialView {...location} />}
+          ></Route>
+          <Route
+            path="/tools/editBurialSingle"
+            element={<EditBurialSingle {...location} />}
+          ></Route>
+          <Route
+            path="/tools/viewTextileSingle"
+            element={<TextileView {...location} />}
+          ></Route>
+          <Route
+            path="/tools/editTextileSingle"
+            element={<EditTextileSingle {...location} />}
+          ></Route>
+          <Route
+            path="/tools/usersDataTableFilter"
+            element={<UsersDataTableFilter />}
           ></Route>
         </Route>
       </Routes>

@@ -155,17 +155,11 @@ function Layout() {
             >
               <div className="bg-white py-2 collapse-inner rounded">
                 <h6 className="collapse-header">Custom Utilities:</h6>
-                <a className="collapse-item" href="utilities-color.html">
-                  Colors
+                <a className="collapse-item" href="/tools/usersDataTableFilter">
+                  User Table
                 </a>
                 <a className="collapse-item" href="utilities-border.html">
-                  Borders
-                </a>
-                <a className="collapse-item" href="utilities-animation.html">
-                  Animations
-                </a>
-                <a className="collapse-item" href="utilities-other.html">
-                  Other
+                  Add User
                 </a>
               </div>
             </div>

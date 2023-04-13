@@ -579,12 +579,10 @@ function BurialDataTableFiltered() {
       temp.forEach((el) => {
         el.subRows = [];
         if (el.mainTextiles.length > 0) {
-          console.log('does something');
           el.mainTextiles.forEach((el2) => {
             let tempElement = el2;
             el2.burialid = tempElement.locale;
             if (el2.mainAnalyses.length > 0) {
-              console.log(el2.mainAnalyses);
               let tempElement = el2.mainAnalyses[0];
               el2.analysistype = tempElement.analysistype;
               el2.analysisDate = tempElement.date;
@@ -614,7 +612,6 @@ function BurialDataTableFiltered() {
           });
         }
       });
-      console.log(temp);
 
       setData(temp);
     };
