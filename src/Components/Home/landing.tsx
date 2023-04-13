@@ -1,5 +1,6 @@
 import '../../Styles/Landing/styles.css';
 import $ from 'jquery';
+import ReactCookieConsent from 'react-cookie-consent';
 function Home() {
   return (
     <div className="">
@@ -307,11 +308,42 @@ function Home() {
       <div className="copyright py-4 text-center text-white">
         <div className="container">
           <small>
-            Brigham Young University &copy; PROVO, UT 84602, USA | 801-422-4636
-            | 2019 © ALL RIGHTS RESERVED
+            Brigham Young University &copy; Provo, UT 84602, USA | 801-422-4636
+            |{' '}
+            <a
+              href="https://www.privacypolicies.com/live/bccfad04-3419-49b7-9627-33976d216684"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted"
+            >
+              Privacy Policy
+            </a>{' '}
+            | 2023 © All Rights Reserved
           </small>
         </div>
       </div>
+      {/* Cookie consent notification */}
+      <ReactCookieConsent
+        location="bottom"
+        buttonClasses="btn btn-primary"
+        buttonText="I UnderstandAccept"
+        cookieName="cookieConsent"
+        style={{ background: '#333', color: '#fff' }}
+        buttonStyle={{ background: '#f8f8f8', color: '#333', fontSize: '13px' }}
+        // this makes the expiration one minute for the cookie
+        expires={1 / 24 / 60}
+        overlay
+      >
+        This website uses cookies to ensure you get the best experience on our
+        website.{' '}
+        <a
+          href="https://www.privacypolicies.com/live/bccfad04-3419-49b7-9627-33976d216684"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn more
+        </a>
+      </ReactCookieConsent>
     </div>
   );
 }
