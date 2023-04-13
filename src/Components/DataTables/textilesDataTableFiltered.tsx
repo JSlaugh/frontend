@@ -13,6 +13,7 @@ import {
 import { matchSorter } from 'match-sorter';
 import { Burialmain } from '../../Models/burialmain';
 import { forEachChild } from 'typescript';
+import { Textile } from '../../Models/textile';
 
 const Styles = styled.div`
   padding: 1rem;
@@ -342,10 +343,9 @@ function Table({ columns, data }) {
 
   return (
     <div className="ScrollCentral">
-      <h2>Burial Filter</h2>
+      <h2>Textile Filter</h2>
       <p className="card-subtitle">
-        This DataTable Allows you to sort by Burial and to identify Textiles in
-        each burial
+        This DataTable Allows you to sort by Textiles
       </p>
       <table {...getTableProps()}>
         <thead>
@@ -559,50 +559,53 @@ function TextilesDataTableFilter() {
   //Plug in the headers here for dynamic Filtering
   const columns = useMemo(() => test, []);
 
-  const [data, setData] = useState<Burialmain[]>([]);
+  const [data, setData] = useState<Textile[]>([]);
   // Pull from database
   useEffect(() => {
     const fetchMovie = async () => {
       const rsp = await fetch(
-        'https://localhost:4000/api/Fagelgamous/getEverything',
+        'https://localhost:4000/api/Fagelgamous/getAllTextiles',
       );
       let temp = await rsp.json();
+      console.log(temp);
       temp.forEach((el) => {
-        el.subRows = [];
-        if (el.mainTextiles.length > 0) {
-          console.log('does something');
-          el.mainTextiles.forEach((el2) => {
-            let tempElement = el2;
-            el2.burialid = tempElement.locale;
-            if (el2.mainAnalyses.length > 0) {
-              console.log(el2.mainAnalyses);
-              let tempElement = el2.mainAnalyses[0];
-              el2.analysistype = tempElement.analysistype;
-              el2.analysisDate = tempElement.date;
-            }
-            if (el2.mainColors.length > 0) {
-              let tempElement = el2.mainColors[0];
-              el2.colorValue = tempElement.value;
-            }
-            if (el2.mainDecorations.length > 0) {
-              let tempElement = el2.mainDecorations[0];
-              el2.decorationValue = tempElement.value;
-            }
-            if (el2.mainDimensions.length > 0) {
-              let tempElement = el2.mainDimensions[0];
-              el2.dimensiontype = tempElement.dimenstiontype;
-              el2.dimensionValue = tempElement.value;
-            }
-            if (el2.mainStructures.length > 0) {
-              let tempElement = el2.mainStructures[0];
-              el2.structureValue = tempElement.value;
-            }
-            if (el2.mainTextilefunctions.length > 0) {
-              let tempElement = el2.mainTextilefunctions[0];
-              el2.textileFunctionsValue = tempElement.value;
-            }
-            el.subRows.push(el2);
-          });
+        if (el.mainAnalyses.length > 0) {
+          console.log(el.mainAnalyses);
+          let tempElement = el.mainAnalyses[0];
+          el.analysistype = tempElement.analysistype;
+          el.analysisDate = tempElement.date;
+        }
+        if (el.mainColors.length > 0) {
+          let tempElement = el.mainColors[0];
+          el.colorValue = tempElement.value;
+        }
+        if (el.mainDecorations.length > 0) {
+          let tempElement = el.mainDecorations[0];
+          el.decorationValue = tempElement.value;
+        }
+        if (el.mainDimensions.length > 0) {
+          let tempElement = el.mainDimensions[0];
+          el.dimensiontype = tempElement.dimenstiontype;
+          el.dimensionValue = tempElement.value;
+        }
+        if (el.mainStructures.length > 0) {
+          let tempElement = el.mainStructures[0];
+          el.structureValue = tempElement.value;
+        }
+        if (el.mainTextilefunctions.length > 0) {
+          let tempElement = el.mainTextilefunctions[0];
+          el.textileFunctionsValue = tempElement.value;
+        }
+        if (el.mainBurialmains.length > 0) {
+          let tempElement = el.mainBurialmains[0];
+          el.burialMainId = tempElement.burialid;
+          el.burialDepth = tempElement.depth;
+          el.burialSex = tempElement.sex;
+          el.burialAgeDeath = tempElement.ageatdeath;
+          el.burialHeadDirection = tempElement.headdirection;
+          el.burialHairColor = tempElement.haircolor;
+          el.burialText = tempElement.text;
+          el.facebundles = tempElement.facebundles;
         }
       });
       console.log(temp);

@@ -6,12 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Styles/styles.css';
-import { Outlet } from 'react-router-dom';
 import Home from './Components/Home/landing';
 import Layout from './Components/Admin/layout';
 import InfoPage from './Components/Admin/infoPage';
 import BurialDataTableFiltered from './Components/DataTables/burialDataTableFiltered';
 import TextilesDataTableFilter from './Components/DataTables/textilesDataTableFiltered';
+import BurialView from './Components/Admin/burialView';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
@@ -33,8 +34,11 @@ root.render(
               path="/tools/textilesDataTableFilter"
               element={<TextilesDataTableFilter />}
             ></Route>
+            <Route
+              path="/tools/viewBurialSingle"
+              element={<BurialView />}
+            ></Route>
           </Route>
-          {/* <Route path="/Movies" element={<Movies />}></Route> */}
         </Route>
       </Routes>
     </BrowserRouter>
