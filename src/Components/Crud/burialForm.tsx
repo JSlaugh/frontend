@@ -8,7 +8,7 @@ function BurialForm() {
         <h1>Burial Form</h1>
         <br></br>
         <br></br>
-        <form>
+        <form method='post'>
             <div className="container">
                 <div className="row">
                     <h2>Location</h2>
