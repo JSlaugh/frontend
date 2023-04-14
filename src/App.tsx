@@ -19,6 +19,8 @@ import { param } from 'jquery';
 import UsersDataTableFilter from './Components/DataTables/userDataTable';
 import Unsupervised from './Components/machineLearning/unsupervised';
 import Supervised from './Components/machineLearning/supervised';
+import UserView from './Components/ViewSingle/userViewSingle';
+import EditUserSingle from './Crud2/editUserSIngle';
 
 function App() {
   const location = useLocation();
@@ -62,6 +64,14 @@ function App() {
           <Route
             path="/tools/usersDataTableFilter"
             element={<UsersDataTableFilter />}
+          ></Route>
+          <Route
+            path="/tools/viewUserSingle"
+            element={<UserView {...location} />}
+          ></Route>
+          <Route
+            path="/tools/editUserSingle"
+            element={<EditUserSingle {...location} />}
           ></Route>
         </Route>
       </Routes>
