@@ -46,7 +46,7 @@ function Layout() {
               aria-expanded="true"
               aria-controls="collapseTwo"
             >
-              <i className="fas fa-fw fa-cog"></i>
+              <i className="fa-solid fa-person-digging"></i>
               <span>CRUD</span>
             </a>
             <div
