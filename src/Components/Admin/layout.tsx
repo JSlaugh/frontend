@@ -18,7 +18,7 @@ function Layout() {
             href="/"
           >
             <div className="sidebar-brand-icon">
-              <i className="fas fa-chart-pyramid"></i>
+              <i className="fas fa-hippo"></i>
             </div>
             <div className="sidebar-brand-text mx-3">Fag el-Gamous</div>
           </a>
