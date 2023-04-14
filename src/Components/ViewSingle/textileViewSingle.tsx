@@ -27,11 +27,11 @@ function TextileView(location: any) {
           Edit
         </Link>
         <Link
-          className="mb-3 btn-primary btn w-100"
+          className="mb-3 btn-secondary btn w-100"
           to="/tools/delete"
           state={{ textileData: data }}
         >
-          Edit
+          Delete
         </Link>
       </div>
     </div>

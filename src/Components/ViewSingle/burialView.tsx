@@ -200,10 +200,12 @@ function BurialView(location: any) {
             Edit
           </Link>
           <Link
-            className="mb-3 btn-primary btn w-100"
+            className="mb-3 btn-secondary btn w-100"
             to="/tools/delete"
             state={{ burialData: data }}
-          ></Link>
+          >
+            Delete
+          </Link>
         </div>
       </div>
     </div>
