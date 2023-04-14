@@ -567,14 +567,12 @@ function BurialDataTableFiltered() {
 
   //Plug in the headers here for dynamic Filtering
   const columns = useMemo(() => test, []);
-
+  const backendUrl = process.env.REACT_APP_BACK_END_URL;
   const [data, setData] = useState<Burialmain[]>([]);
   // Pull from database
   useEffect(() => {
     const fetchMovie = async () => {
-      const rsp = await fetch(
-        'https://localhost:4000/api/Fagelgamous/getEverything',
-      );
+      const rsp = await fetch(backendUrl + '/api/Fagelgamous/getEverything');
       let temp = await rsp.json();
       temp.forEach((el) => {
         el.subRows = [];
