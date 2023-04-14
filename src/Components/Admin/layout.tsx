@@ -86,11 +86,8 @@ function Layout() {
                   Login
                 </Link>
                 <Link className="collapse-item" to="register.html">
-                  Login
+                  Register
                 </Link>
-                <a className="collapse-item" href="forgot-password.html">
-                  Forgot Password
-                </a>
                 <Link className="collapse-item" to="forgot-password.html">
                   Forgot Password
                 </Link>
