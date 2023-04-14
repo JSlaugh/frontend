@@ -9,7 +9,7 @@ function AddUser(location: any) {
     event.preventDefault();
     console.log(formData);
     axios
-      .put(
+      .post(
         process.env.REACT_APP_BACK_END_URL + '/api/Authorization/createUser',
         formData,
       )
@@ -19,6 +19,7 @@ function AddUser(location: any) {
       .catch((error) => {
         console.error('There was a problem with the axios operation:', error);
       });
+      window.location.href = "/tools"
   };
 
   const handleChange = (event: any) => {
@@ -39,22 +40,17 @@ function AddUser(location: any) {
 //   }, [data, location.state.userData]);
 
   const [formData, setFormData] = useState({
-    adminEmail: 'presentation@test.com',
-    id: '',
+
+    id: 0,
     email: '',
     firstName: '',
-    password:'',
-    roleId: '',
+    tempPassword:'',
+    roleId: null,
   });
   return (
     <div className="container">
       <form className="row" onSubmit={handleSubmit}>
-        <input
-          type="hidden"
-          name="adminEmail"
-          onChange={handleChange}
-          value={data?.email}
-        />
+        
 
         <input
           type="hidden"
@@ -75,20 +71,21 @@ function AddUser(location: any) {
         <input
           type="text"
           value={formData.userFirstName}
-          name="userFirstName"
+          name="firstName"
           onChange={handleChange}
         />
-        <label>User Password:</label>
+        <label>User Temp Password:</label>
         <input
           type="password"
           value={formData.password}
-          name="password"
+          name="tempPassword"
           onChange={handleChange}
         />
 
-        <select class="form-select" name='roleId'>
-        <option value='1'>Administrator</option>
-        <option value='2'>Researcher</option>
+        <select class="form-select" name='roleId' onChange={handleChange} >
+          <option></option>
+          <option value='1'>Administrator</option>
+          <option value='2'>Researcher</option>
         </select>
 
 
