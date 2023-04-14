@@ -1,4 +1,54 @@
+import React, { useState } from "react";
+
+interface FormData {
+  squarenorthsouth: number;
+  depth: number;
+  southtohead: number;
+  squareeastwest: number;
+  westtohead: number;
+  westtofeet: number;
+  southtofeet: number;
+  eastwest_W: number;
+}
+
 function Supervised() {
+  const [formData, setFormData] = useState<FormData>({
+    squarenorthsouth: 0,
+    depth: 0,
+    southtohead: 0,
+    squareeastwest: 0,
+    westtohead: 0,
+    westtofeet: 0,
+    southtofeet: 0,
+    eastwest_W: 0,
+  });
+  const [result, setResult] = useState<any>(null); // Initialize result state to null
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const response = await fetch("http://127.0.0.1:8000/predict", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+    const prediction = await response.json();
+    setResult(prediction); // Update the result state with the prediction
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: parseFloat(e.target.value),
+    });
+  };
+
+  const resultStyle = {
+    height: result && result.prediction ? "auto" : "0",
+    overflow: "hidden",
+    transition: "height 0.3s ease-in-out",
+  };
   return (
     <div className="">
       <h1>Supervised Model - Predicting Burial Head Direction</h1>
@@ -21,10 +71,13 @@ function Supervised() {
           a similar area. The model predicts the correct outcome with 95%
           accuracy.
         </h5>
+        <p>W = West</p>
+        <p>E = East</p>
         <hr /> {/* Horizontal line */}
-        <h2>Predict Head Direction</h2>
+        {result && <h2>Prediction: {result.prediction}</h2>}
+        <hr /> {/* Horizontal line */}
       </div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-row">
           <div className="form-group col-md-6">
             <label htmlFor="depth">Depth</label>
@@ -35,6 +88,8 @@ function Supervised() {
               id="depth"
               name="depth"
               placeholder="Enter depth value"
+              value={formData.depth}
+              onChange={handleChange}
               required
             />
           </div>
@@ -47,6 +102,8 @@ function Supervised() {
               id="squarenorthsouth"
               name="squarenorthsouth"
               placeholder="Enter square north-south value"
+              value={formData.squarenorthsouth}
+              onChange={handleChange}
               required
             />
           </div>
@@ -61,6 +118,8 @@ function Supervised() {
               id="squareeastwest"
               name="squareeastwest"
               placeholder="Enter square east-west value"
+              value={formData.squareeastwest}
+              onChange={handleChange}
               required
             />
           </div>
@@ -73,6 +132,8 @@ function Supervised() {
               id="southtohead"
               name="southtohead"
               placeholder="Enter south to head value"
+              value={formData.southtohead}
+              onChange={handleChange}
               required
             />
           </div>
@@ -87,6 +148,8 @@ function Supervised() {
               id="westtohead"
               name="westtohead"
               placeholder="Enter west to head value"
+              value={formData.westtohead}
+              onChange={handleChange}
               required
             />
           </div>
@@ -99,6 +162,8 @@ function Supervised() {
               id="southtofeet"
               name="southtofeet"
               placeholder="Enter south to feet value"
+              value={formData.southtofeet}
+              onChange={handleChange}
               required
             />
           </div>
@@ -113,6 +178,8 @@ function Supervised() {
               id="westtofeet"
               name="westtofeet"
               placeholder="Enter west to feet value"
+              value={formData.westtofeet}
+              onChange={handleChange}
               required
             />
           </div>
@@ -125,6 +192,8 @@ function Supervised() {
               id="eastwest_W"
               name="eastwest_W"
               placeholder="Enter east-west W value"
+              value={formData.eastwest_W}
+              onChange={handleChange}
               required
             />
           </div>
@@ -133,6 +202,12 @@ function Supervised() {
           Submit
         </button>
       </form>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+
     </div>
   );
 }
