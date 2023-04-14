@@ -18,7 +18,7 @@ function Layout() {
             href="/"
           >
             <div className="sidebar-brand-icon">
-              <i className="fas fa-hippo"></i>
+              <i className="fas fa-chart-pyramid"></i>
             </div>
             <div className="sidebar-brand-text mx-3">Fag el-Gamous</div>
           </a>
@@ -293,9 +293,9 @@ function Layout() {
         </div>
       </div>
 
-      <a className="scroll-to-top rounded" href="#page-top">
+      {/* <a className="scroll-to-top rounded" href="#page-top">
         <i className="fas fa-angle-up"></i>
-      </a>
+      </a> */}
     </div>
   );
 }

@@ -58,7 +58,15 @@ function Home() {
       </nav>
       <header className="masthead bg-primary text-white text-center heroImage">
         <div className="container d-flex align-items-center flex-column hero overlay">
-          <h1 className="masthead-heading text-uppercase mb-0">
+          <h1
+            className="masthead-heading text-uppercase mb-0"
+            style={{
+              fontFamily: "Arial",
+              fontSize: "48px",
+              fontWeight: "bold",
+              letterSpacing: "2px",
+            }}
+          >
             Fag el-Gamous
           </h1>
         </div>
@@ -193,12 +201,12 @@ function Home() {
           </div>
         </div>
       </section>
-      <section className="page-section bg-primary text-white mb-0" id="about">
+      <section className="page-section bg-light text-dark mb-0" id="about">
         <div className="container">
-          <h2 className="page-section-heading text-center text-uppercase text-white">
+          <h2 className="page-section-heading text-center text-uppercase">
             Fag el-Gamous Burial Site and Seila Pyramid
           </h2>
-          <div className="divider-custom divider-light">
+          <div className="divider-custom divider-dark">
             <div className="divider-custom-line"></div>
             <div className="divider-custom-icon">
               <i className="fas fa-star"></i>
@@ -321,7 +329,10 @@ function Home() {
           </div>
         </div>
       </section>
-      <footer className="footer text-center">
+      <footer
+        className="footer text-center"
+        style={{ backgroundColor: "#4285F4", color: "white" }}
+      >
         <div className="container">
           <div className="centerContent" id="GetInvolved">
             <h4 className="text-uppercase mb-4">Get Involved!</h4>
@@ -344,7 +355,7 @@ function Home() {
             Brigham Young University &copy; Provo, UT 84602, USA | 801-422-4636
             |{" "}
             <a
-              href="https://www.privacypolicies.com/live/bccfad04-3419-49b7-9627-33976d216684"
+              href="https://www.privacypolicies.com/live/f9daa7f2-c932-48e8-8037-2e29ac1b1e48"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted"
@@ -369,7 +380,7 @@ function Home() {
         This website uses cookies to ensure you get the best experience on our
         website.{" "}
         <a
-          href="https://www.privacypolicies.com/live/bccfad04-3419-49b7-9627-33976d216684"
+          href="https://www.privacypolicies.com/live/f9daa7f2-c932-48e8-8037-2e29ac1b1e48"
           target="_blank"
           rel="noopener noreferrer"
         >
