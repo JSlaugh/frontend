@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
-import { User } from '../Models/user';
+import { User } from '../../Models/user';
 import axios from 'axios';
 function EditUserSingle(location: any) {
   const [data, setData] = useState<User>();

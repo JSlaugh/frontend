@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
-import { Burialmain } from '../Models/burialmain';
-import { Textile } from '../Models/textile';
+import { Burialmain } from '../../Models/burialmain';
+import { Textile } from '../../Models/textile';
 
 function EditTextileSingle(location: any) {
   const [data, setData] = useState<Textile>();
