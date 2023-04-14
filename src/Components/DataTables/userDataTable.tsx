@@ -19,6 +19,9 @@ import { User } from '../../Models/user';
 
 const Styles = styled.div`
   padding: 1rem;
+  .pagination {
+    justify-content: center;
+  }
   .pagination > * {
     margin-right: 10px;
   }
@@ -36,6 +39,8 @@ const Styles = styled.div`
   table {
     border-spacing: 0;
     border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 5px;
 
     tr {
@@ -345,97 +350,105 @@ function Table({ columns, data }) {
 
   return (
     <div className="">
-      <h2>Textile Filter</h2>
+      <h2>User Table</h2>
       <p className="card-subtitle">
-        This DataTable allows you to sort through Textiles
+        This DataTable allows you to identify users
       </p>
-      <table {...getTableProps()}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>
-                  {column.render('Header')}
-                  {/* Render the columns filter UI */}
-                  <div>{column.canFilter ? column.render('Filter') : null}</div>
-                </th>
-              ))}
-            </tr>
-          ))}
-          <tr>
-            <th
-              colSpan={visibleColumns.length}
-              style={{
-                textAlign: 'left',
-              }}
-            >
-              <GlobalFilter
-                preGlobalFilteredRows={preGlobalFilteredRows}
-                globalFilter={globalFilter}
-                setGlobalFilter={setGlobalFilter}
-              />
-            </th>
-          </tr>
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {page.map((row: any, i: any) => {
-            prepareRow(row);
-            return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  return (
-                    <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                  );
-                })}
+      <div className="contentCenter">
+        <table {...getTableProps()} className="">
+          <thead>
+            {headerGroups.map((headerGroup) => (
+              <tr {...headerGroup.getHeaderGroupProps()}>
+                {headerGroup.headers.map((column) => (
+                  <th {...column.getHeaderProps()}>
+                    {column.render('Header')}
+                    {/* Render the columns filter UI */}
+                    <div>
+                      {column.canFilter ? column.render('Filter') : null}
+                    </div>
+                  </th>
+                ))}
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <div className="pagination">
-        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-          {'<<'}
-        </button>{' '}
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-          {'<'}
-        </button>{' '}
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
-          {'>'}
-        </button>{' '}
-        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-          {'>>'}
-        </button>{' '}
-        <span>
-          Page{' '}
-          <strong>
-            {pageIndex + 1} of {pageOptions.length}
-          </strong>{' '}
-        </span>
-        <span>
-          | Go to page:{' '}
-          <input
-            type="number"
-            defaultValue={pageIndex + 1}
+            ))}
+            <tr>
+              <th
+                colSpan={visibleColumns.length}
+                style={{
+                  textAlign: 'left',
+                }}
+              >
+                <GlobalFilter
+                  preGlobalFilteredRows={preGlobalFilteredRows}
+                  globalFilter={globalFilter}
+                  setGlobalFilter={setGlobalFilter}
+                />
+              </th>
+            </tr>
+          </thead>
+          <tbody {...getTableBodyProps()}>
+            {page.map((row: any, i: any) => {
+              prepareRow(row);
+              return (
+                <tr {...row.getRowProps()}>
+                  {row.cells.map((cell) => {
+                    return (
+                      <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+        <div className="pagination">
+          <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+            {'<<'}
+          </button>{' '}
+          <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+            {'<'}
+          </button>{' '}
+          <button onClick={() => nextPage()} disabled={!canNextPage}>
+            {'>'}
+          </button>{' '}
+          <button
+            onClick={() => gotoPage(pageCount - 1)}
+            disabled={!canNextPage}
+          >
+            {'>>'}
+          </button>{' '}
+          <span>
+            Page{' '}
+            <strong>
+              {pageIndex + 1} of {pageOptions.length}
+            </strong>{' '}
+          </span>
+          <span>
+            | Go to page:{' '}
+            <input
+              type="number"
+              defaultValue={pageIndex + 1}
+              onChange={(e) => {
+                const page = e.target.value ? Number(e.target.value) - 1 : 0;
+                gotoPage(page);
+              }}
+              style={{ width: '100px' }}
+            />
+          </span>{' '}
+          <select
+            value={pageSize}
             onChange={(e) => {
-              const page = e.target.value ? Number(e.target.value) - 1 : 0;
-              gotoPage(page);
+              setPageSize(Number(e.target.value));
             }}
-            style={{ width: '100px' }}
-          />
-        </span>{' '}
-        <select
-          value={pageSize}
-          onChange={(e) => {
-            setPageSize(Number(e.target.value));
-          }}
-        >
-          {[10, 20, 30, 40, 50].map((pageSize) => (
-            <option key={pageSize} value={pageSize}>
-              Show {pageSize}
-            </option>
-          ))}
-        </select>
+          >
+            {[10, 20, 30, 40, 50].map((pageSize) => (
+              <option key={pageSize} value={pageSize}>
+                Show {pageSize}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
+
       <br />
     </div>
   );
@@ -458,22 +471,27 @@ filterGreaterThan.autoRemove = (val: any) => typeof val !== 'number';
 function UsersDataTableFilter() {
   const test = [
     {
-      Header: 'Textile',
+      Header: 'User',
       columns: [
         {
-          Header: 'Locale',
+          Header: 'Id',
           accessor: 'id',
+          Cell: ({ row }) => (
+            <Link to="/tools/viewUserSingle" state={{ userData: row.original }}>
+              {row.original.id}
+            </Link>
+          ),
         },
         {
-          Header: 'Locale',
+          Header: 'First Name',
           accessor: 'firstName',
         },
         {
-          Header: 'Locale',
+          Header: 'Role',
           accessor: 'roleName',
         },
         {
-          Header: 'Locale',
+          Header: 'Email',
           accessor: 'email',
         },
       ],

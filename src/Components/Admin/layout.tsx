@@ -1,5 +1,5 @@
-import "../../Styles/User/styles.css";
-import { Outlet } from "react-router-dom";
+import '../../Styles/User/styles.css';
+import { Link, Outlet } from 'react-router-dom';
 
 function Layout() {
   return (
@@ -52,9 +52,9 @@ function Layout() {
             >
               <div className="bg-white py-2 collapse-inner rounded">
                 <h6 className="collapse-header">Custom Components:</h6>
-                <a className="collapse-item" href="/tools/burialForm">
+                <Link className="collapse-item" to="/tools/burialForm">
                   Burial
-                </a>
+                </Link>
                 <a className="collapse-item" href="/tools/textileForm">
                   Textiles
                 </a>
