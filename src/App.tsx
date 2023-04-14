@@ -24,6 +24,8 @@ import EditUserSingle from './Components/Crud2/editUserSIngle';
 import Login from './Components/Admin/login';
 import { BrowserRouter } from 'react-router-dom';
 import ConfirmDeletePage from './Components/Admin/confirmDelete';
+import AddUser from './Components/Admin/addUser';
+
 function App() {
   const location = useLocation();
   console.log(location);
@@ -39,6 +41,7 @@ function App() {
           <Route path="/tools/supervised" element={<Supervised />}></Route>
           <Route path="/tools/burialForm" element={<BurialForm />}></Route>
           <Route path="/tools/textileForm" element={<TextileForm />}></Route>
+          <Route path="/tools/addUser" element={<AddUser />}></Route>
           <Route
             path="/tools/delete"
             element={<ConfirmDeletePage {...location} />}
