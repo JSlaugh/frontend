@@ -5,7 +5,7 @@ import { User } from '../../Models/user';
 import axios from 'axios';
 function EditUserSingle(location: any) {
   const [data, setData] = useState<User>();
-
+  const CurrentUser = useSelector(selectUser);
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     console.log(formData);
@@ -20,7 +20,7 @@ function EditUserSingle(location: any) {
       .catch((error) => {
         console.error('There was a problem with the axios operation:', error);
       });
-      window.location.href = "/tools"
+    window.location.href = '/tools';
   };
 
   const handleChange = (event: any) => {
@@ -87,10 +87,19 @@ function EditUserSingle(location: any) {
           name="userRoleId"
           onChange={handleChange}
         />
-
-        <button className="mt-3 btn btn-primary" type="submit">
-          Submit
-        </button>
+        {CurrentUser.Length > 0 ? (
+          CurrentUser[0] > 0 ? (
+            <div>
+              <button className="mt-3 btn btn-primary" type="submit">
+                Submit
+              </button>
+            </div>
+          ) : (
+            <li></li>
+          )
+        ) : (
+          <li></li>
+        )}
       </form>
     </div>
   );
