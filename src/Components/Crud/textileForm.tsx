@@ -6,7 +6,7 @@ function TextileForm() {
     event.preventDefault();
     console.log(formData);
     axios
-      .put(
+      .post(
         process.env.REACT_APP_BACK_END_URL + '/api/Fagelgamous/createTextile',
         formData,
       )
@@ -22,7 +22,7 @@ function TextileForm() {
   };
 
   const [formData, setFormData] = useState({
-    id: '',
+    id: 0,
     description: '',
     burialnumber: '',
     estimatedperiod: '',
@@ -30,6 +30,7 @@ function TextileForm() {
     direction: '',
     photographeddate: '',
     textileid: '',
+    locale:'',
   });
   return (
     <div>
