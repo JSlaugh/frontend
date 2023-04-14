@@ -5,7 +5,8 @@ import { setUser, logout, selectUser } from '../../Store/Store';
 import '../../Styles/User/styles.css';
 
 function Layout() {
-  const CurrentUser = '';
+  const dispatch = useDispatch();
+  const CurrentUser = useSelector(selectUser);
   return (
     <div>
       <div id="wrapper">
@@ -86,11 +87,8 @@ function Layout() {
             >
               <div className="bg-white py-2 collapse-inner rounded">
                 <h6 className="collapse-header">Account Information</h6>
-                <Link className="collapse-item" to="login.html">
+                <Link className="collapse-item" to="/tools/login">
                   Login
-                </Link>
-                <Link className="collapse-item" to="register.html">
-                  Register
                 </Link>
                 <Link className="collapse-item" to="forgot-password.html">
                   Forgot Password
@@ -274,7 +272,10 @@ function Layout() {
                         Profile
                       </a>
                       <div className="dropdown-divider"></div>
-                      <button className="dropdown-item">
+                      <button
+                        className="dropdown-item"
+                        onClick={() => dispatch(logout())}
+                      >
                         <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                         Logout
                       </button>

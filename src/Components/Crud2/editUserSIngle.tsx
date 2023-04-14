@@ -9,21 +9,13 @@ function EditUserSingle(location: any) {
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     console.log(formData);
-    fetch('https://localhost:4000/api/Authorization/editUser', {
-      method: 'PUT',
-      body: formData,
-    })
+    axios
+      .put('https://localhost:4000/api/Authorization/editUser', formData)
       .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
+        console.log(response.data);
       })
       .catch((error) => {
-        console.error('There was a problem with the fetch operation:', error);
+        console.error('There was a problem with the axios operation:', error);
       });
   };
 
@@ -52,54 +44,49 @@ function EditUserSingle(location: any) {
     userRoleId: '',
   });
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Admin Email:
-          <input
-            type="hidden"
-            name="adminEmail"
-            onChange={handleChange}
-            value={data?.email}
-          />
-        </label>
-        <label>
-          User ID:
-          <input
-            type="hidden"
-            value={formData?.userId}
-            name="userId"
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          User Email:
-          <input
-            type="email"
-            value={formData.userEmail}
-            name="userEmail"
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          User First Name:
-          <input
-            type="text"
-            value={formData.userFirstName}
-            name="userFirstName"
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          User Role ID:
-          <input
-            type="number"
-            value={formData.userRoleId}
-            name="userRoleId"
-            onChange={handleChange}
-          />
-        </label>
-        <button type="submit">Submit</button>
+    <div className="container">
+      <form className="row" onSubmit={handleSubmit}>
+        <input
+          type="hidden"
+          name="adminEmail"
+          onChange={handleChange}
+          value={data?.email}
+        />
+
+        <input
+          type="hidden"
+          value={formData?.userId}
+          name="userId"
+          onChange={handleChange}
+        />
+
+        <label>User Email:</label>
+        <input
+          type="email"
+          value={formData.userEmail}
+          name="userEmail"
+          onChange={handleChange}
+        />
+
+        <label>User First Name:</label>
+        <input
+          type="text"
+          value={formData.userFirstName}
+          name="userFirstName"
+          onChange={handleChange}
+        />
+
+        <label>User Role ID:</label>
+        <input
+          type="number"
+          value={formData.userRoleId}
+          name="userRoleId"
+          onChange={handleChange}
+        />
+
+        <button className="mt-3 btn btn-primary" type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );

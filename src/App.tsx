@@ -22,6 +22,7 @@ import Supervised from './Components/machineLearning/supervised';
 import UserView from './Components/ViewSingle/userViewSingle';
 import EditUserSingle from './Components/Crud2/editUserSIngle';
 import Login from './Components/Admin/login';
+import { BrowserRouter } from 'react-router-dom';
 function App() {
   const location = useLocation();
   console.log(location);

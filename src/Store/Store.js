@@ -22,6 +22,7 @@ export const User = createSlice({
 });
 export const selectUser = (state) => state.User;
 export const { setUser, logout } = User.actions;
+
 export default configureStore({
   reducer: User.reducer,
 });

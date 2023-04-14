@@ -2,9 +2,15 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import axios from 'axios';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { selectUser, setUser } from '../../Store/Store';
 function Login(location: any) {
+  const user = useSelector((state) => state.User);
+  const dispatch = useDispatch();
   const handleSubmit = async (event: any) => {
     event.preventDefault();
+    // dispatch(setUser('Bob', 'bob', 'bob'));
     console.log(formData);
     fetch('https://localhost:4000/api/Authorization/editUser', {
       method: 'PUT',
@@ -50,7 +56,7 @@ function Login(location: any) {
           type="password"
           value={formData?.password}
           name="password"
-          min="14"
+          minLength="14"
           onChange={handleChange}
         />
 
