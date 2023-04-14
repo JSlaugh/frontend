@@ -13,6 +13,7 @@ import BurialView from './Components/ViewSingle/burialView';
 import TextileView from './Components/ViewSingle/textileViewSingle';
 import EditBurialSingle from './Components/Crud2/editBurialSingle';
 import EditTextileSingle from './Components/Crud2/editTextileSingle';
+import AddUser from './Components/Admin/addUser'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Styles/styles.css';
 import { param } from 'jquery';
@@ -38,6 +39,7 @@ function App() {
           <Route path="/tools/supervised" element={<Supervised />}></Route>
           <Route path="/tools/burialForm" element={<BurialForm />}></Route>
           <Route path="/tools/textileForm" element={<TextileForm />}></Route>
+          <Route path="/tools/addUser" element={<AddUser />}></Route>
           <Route
             path="/tools/burialFilterTable"
             element={<BurialDataTableFiltered />}

@@ -164,7 +164,7 @@ function Layout() {
                 </Link>
                 <Link
                   className="collapse-item"
-                  to="/tools/usersDataTableFilter"
+                  to="/tools/addUser"
                 >
                   Add User
                 </Link>
