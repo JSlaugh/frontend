@@ -1,8 +1,7 @@
-import '../../Styles/User/styles.css';
 import { Link, Outlet } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
 import { setUser, logout, selectUser } from '../../Store/userSlice';
 import '../../Styles/User/styles.css';
+import { useSelector, useDispatch } from 'react-redux';
 
 function Layout() {
   const dispatch = useDispatch();
@@ -28,10 +27,9 @@ function Layout() {
           <hr className="sidebar-divider my-0" />
 
           <li className="nav-item">
-            <a className="nav-link" href="/tools">
-              <i className="fas fa-fw fa-home"></i>
-              <span>Instructions</span>
-            </a>
+            <Link className="nav-link" to="/tools">
+              <i className="fas fa-fw fa-home"></i>Instructions
+            </Link>
           </li>
 
           <hr className="sidebar-divider" />
@@ -295,9 +293,9 @@ function Layout() {
         </div>
       </div>
 
-      <a className="scroll-to-top rounded" href="#page-top">
+      {/* <a className="scroll-to-top rounded" href="#page-top">
         <i className="fas fa-angle-up"></i>
-      </a>
+      </a> */}
     </div>
   );
 }
