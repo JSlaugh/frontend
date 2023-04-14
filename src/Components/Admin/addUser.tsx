@@ -19,6 +19,7 @@ function AddUser(location: any) {
       .catch((error) => {
         console.error('There was a problem with the axios operation:', error);
       });
+      window.location.href = "/tools"
   };
 
   const handleChange = (event: any) => {
