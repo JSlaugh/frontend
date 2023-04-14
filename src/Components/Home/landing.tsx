@@ -1,5 +1,4 @@
 import "../../Styles/Landing/styles.css";
-import $ from "jquery";
 import ReactCookieConsent from "react-cookie-consent";
 function Home() {
   return (
@@ -85,7 +84,10 @@ function Home() {
                 loading="lazy"
                 alt="Dr. Kerry Muhlestein"
               />
-              <p className="overlay">Dr. Kerry Muhlestein</p>
+              <p className="overlay">
+                Dr. Kerry Muhlestein <br></br>{" "}
+                <h4>BYU Egypt Excavation Director</h4>
+              </p>
             </a>
           </div>
           <div className="cardPerson">
@@ -95,7 +97,12 @@ function Home() {
                 loading="lazy"
                 alt="Dr. Casey Kirkpatrick"
               />
-              <p className="overlay">Dr. Casey Kirkpatrick</p>
+              <p className="overlay">
+                Dr. Casey Kirkpatrick <br></br>{" "}
+                <h4>
+                  Adjunct Research Professor in the Department of Anthropology
+                </h4>
+              </p>
             </a>
           </div>
           <div className="cardPerson">
@@ -105,7 +112,13 @@ function Home() {
                 loading="lazy"
                 alt="Anne Kwaspen"
               />
-              <p className="overlay">Anne Kwaspen</p>
+              <p className="overlay">
+                Anne Kwaspen <br></br>{" "}
+                <h4>
+                  Costume History, Archaological Egyptian Textiles, Technical
+                  Analyses
+                </h4>
+              </p>
             </a>
           </div>
           <div className="cardPerson">
@@ -115,7 +128,9 @@ function Home() {
                 loading="lazy"
                 alt="Kristin South"
               />
-              <p className="overlay">Kristin South</p>
+              <p className="overlay">
+                Kristin South <br></br> <h4>Team Member Since 1998</h4>
+              </p>
             </a>
           </div>
           <div className="cardPerson">
@@ -125,7 +140,10 @@ function Home() {
                 loading="lazy"
                 alt="Brian Christensen"
               />
-              <p className="overlay">Brian Christensen</p>
+              <p className="overlay">
+                Brian Christensen <br></br>{" "}
+                <h4>Associate Professor of Art at BYU</h4>
+              </p>
             </a>
           </div>
           <div className="cardPerson">
@@ -135,7 +153,10 @@ function Home() {
                 loading="lazy"
                 alt="Bethany Jensen"
               />
-              <p className="overlay">Bethany Jensen</p>
+              <p className="overlay">
+                Bethany Jensen <br></br>{" "}
+                <h4>University of Memphis Graduate Student</h4>
+              </p>
             </a>
           </div>
           <div className="cardPerson">
@@ -145,7 +166,13 @@ function Home() {
                 loading="lazy"
                 alt="Dr. R. Paul Evans"
               />
-              <p className="overlay">Dr. R. Paul Evans</p>
+              <p className="overlay">
+                Dr. R. Paul Evans <br></br>{" "}
+                <h4>
+                  Assistant Professor in the Department of Microbiology &
+                  Molecular Biology at BYU
+                </h4>
+              </p>
             </a>
           </div>
           <div className="cardPerson">
@@ -155,7 +182,13 @@ function Home() {
                 loading="lazy"
                 alt="Dr. Krystal V. L. Pierce"
               />
-              <p className="overlay">Dr. Krystal V. L. Pierce</p>
+              <p className="overlay">
+                Dr. Krystal V. L. Pierce <br></br>{" "}
+                <h4>
+                  Assistant Professor in the Department of Ancient Scripture at
+                  BYU
+                </h4>
+              </p>
             </a>
           </div>
         </div>

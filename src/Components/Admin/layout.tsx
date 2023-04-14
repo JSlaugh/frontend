@@ -1,8 +1,7 @@
-import '../../Styles/User/styles.css';
-import { Link, Outlet } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { setUser, logout, selectUser } from '../../Store/Store';
-import '../../Styles/User/styles.css';
+import "../../Styles/User/styles.css";
+import { Link, Outlet } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setUser, logout, selectUser } from "../../Store/Store";
 
 function Layout() {
   const dispatch = useDispatch();
@@ -259,7 +258,7 @@ function Layout() {
 
                       <span className="mr-5 d-none d-lg-inline text-gray-600 small">
                         <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                        {CurrentUser ? CurrentUser : ''}
+                        {CurrentUser ? CurrentUser : ""}
                       </span>
                     </a>
 
