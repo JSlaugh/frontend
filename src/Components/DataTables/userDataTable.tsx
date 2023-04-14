@@ -500,14 +500,12 @@ function UsersDataTableFilter() {
 
   //Plug in the headers here for dynamic Filtering
   const columns = useMemo(() => test, []);
-
+  const backendUrl = process.env.REACT_APP_BACK_END_URL;
   const [data, setData] = useState<User[]>([]);
   // Pull from database
   useEffect(() => {
     const fetchMovie = async () => {
-      const rsp = await fetch(
-        'https://localhost:4000/api/Authorization/getAllUsers',
-      );
+      const rsp = await fetch(backendUrl + '/api/Authorization/getAllUsers');
       let temp = await rsp.json();
       console.log(temp);
 

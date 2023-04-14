@@ -6,13 +6,14 @@ import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser, setUser } from '../../Store/Store';
 function Login(location: any) {
+  const backendUrl = process.env.REACT_APP_BACK_END_URL;
   const user = useSelector((state) => state.User);
   const dispatch = useDispatch();
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     // dispatch(setUser('Bob', 'bob', 'bob'));
     console.log(formData);
-    fetch('https://localhost:4000/api/Authorization/editUser', {
+    fetch(backendUrl + '/api/Authorization/editUser', {
       method: 'PUT',
       body: formData,
     })

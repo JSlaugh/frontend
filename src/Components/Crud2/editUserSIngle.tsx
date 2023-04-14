@@ -10,7 +10,10 @@ function EditUserSingle(location: any) {
     event.preventDefault();
     console.log(formData);
     axios
-      .put('https://localhost:4000/api/Authorization/editUser', formData)
+      .put(
+        process.env.REACT_APP_BACK_END_URL + '/api/Authorization/editUser',
+        formData,
+      )
       .then((response) => {
         console.log(response.data);
       })
