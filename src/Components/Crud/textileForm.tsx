@@ -26,10 +26,10 @@ function TextileForm() {
     description: '',
     burialnumber: '',
     estimatedperiod: '',
-    sampledate: '',
+    sampledate: null,
     direction: '',
-    photographeddate: '',
-    textileid: '',
+    photographeddate: null,
+    textileid: null,
     locale:'',
   });
   return (
