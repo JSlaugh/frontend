@@ -16,6 +16,7 @@ function TextileForm() {
       .catch((error) => {
         console.error('There was a problem with the axios operation:', error);
       });
+      window.location.href="/tools"
   };
   const handleChange = (event: any) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -26,10 +27,10 @@ function TextileForm() {
     description: '',
     burialnumber: '',
     estimatedperiod: '',
-    sampledate: '',
+    sampledate: null,
     direction: '',
-    photographeddate: '',
-    textileid: '',
+    photographeddate: null,
+    textileid: null,
     locale:'',
   });
   return (
