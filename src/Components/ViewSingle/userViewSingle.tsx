@@ -8,10 +8,10 @@ function UserView(location: any) {
 
   useEffect(() => {
     // Google Analytics
-    let temp = location.state.textileData;
+    let temp = location.state.userData;
     setData(temp);
     console.log(data);
-  }, [data, location.state.textileData]);
+  }, [data, location.state.userData]);
 
   return (
     <div>
