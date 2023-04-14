@@ -16,5 +16,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "public/js/scripts.js"]
+  "include": ["src", "public/js/scripts.js", "src/.Env"]
 }
