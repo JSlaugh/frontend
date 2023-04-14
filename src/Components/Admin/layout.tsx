@@ -1,7 +1,7 @@
-import { Link, Outlet } from 'react-router-dom';
-import { setUser, logout, selectUser } from '../../Store/userSlice';
-import '../../Styles/User/styles.css';
-import { useSelector, useDispatch } from 'react-redux';
+import { Link, Outlet } from "react-router-dom";
+import { setUser, logout, selectUser } from "../../Store/userSlice";
+import "../../Styles/User/styles.css";
+import { useSelector, useDispatch } from "react-redux";
 
 function Layout() {
   const dispatch = useDispatch();
@@ -88,9 +88,6 @@ function Layout() {
                 <h6 className="collapse-header">Account Information</h6>
                 <Link className="collapse-item" to="/tools/login">
                   Login
-                </Link>
-                <Link className="collapse-item" to="forgot-password.html">
-                  Forgot Password
                 </Link>
                 <div className="collapse-divider"></div>
                 <h6 className="collapse-header">Filtered Tables</h6>
@@ -258,7 +255,7 @@ function Layout() {
 
                       <span className="mr-5 d-none d-lg-inline text-gray-600 small">
                         <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                        {CurrentUser ? CurrentUser : ''}
+                        {CurrentUser ? CurrentUser : ""}
                       </span>
                     </a>
 
