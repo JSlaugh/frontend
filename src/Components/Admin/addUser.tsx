@@ -40,10 +40,11 @@ function AddUser(location: any) {
 
   const [formData, setFormData] = useState({
     adminEmail: 'presentation@test.com',
-    userId: '',
-    userEmail: '',
-    userFirstName: '',
-    userRoleId: '',
+    id: '',
+    email: '',
+    firstName: '',
+    password:'',
+    roleId: '',
   });
   return (
     <div className="container">
@@ -57,7 +58,7 @@ function AddUser(location: any) {
 
         <input
           type="hidden"
-          value={formData?.userId}
+          value={formData?.id}
           name="userId"
           onChange={handleChange}
         />
@@ -65,8 +66,8 @@ function AddUser(location: any) {
         <label>User Email:</label>
         <input
           type="email"
-          value={formData.userEmail}
-          name="userEmail"
+          value={formData.email}
+          name="email"
           onChange={handleChange}
         />
 
@@ -77,8 +78,15 @@ function AddUser(location: any) {
           name="userFirstName"
           onChange={handleChange}
         />
+        <label>User Password:</label>
+        <input
+          type="password"
+          value={formData.password}
+          name="password"
+          onChange={handleChange}
+        />
 
-        <select class="form-select">
+        <select class="form-select" name='roleId'>
         <option value='1'>Administrator</option>
         <option value='2'>Researcher</option>
         </select>
