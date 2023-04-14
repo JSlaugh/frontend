@@ -22,6 +22,10 @@ function EditTextileSingle(location: any) {
       });
   };
 
+  const handleChange = (event: any) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
+
   useEffect(() => {
     let temp = location.state.textileData;
     setData(temp);
@@ -57,7 +61,7 @@ function EditTextileSingle(location: any) {
               <input
                 type="hidden"
                 name="id"
-                value={data?.id}
+                value={formData.id}
                 onChange={handleChange}
               ></input>
             </div>
@@ -68,7 +72,7 @@ function EditTextileSingle(location: any) {
                 className="form-control"
                 name="locale"
                 placeholder="Locale"
-                value={data?.Locale}
+                value={formData.Locale}
                 onChange={handleChange}
               />
             </div>
@@ -80,7 +84,7 @@ function EditTextileSingle(location: any) {
                 className="form-control"
                 name="description"
                 placeholder="Description"
-                value={data?.description}
+                value={formData.description}
                 onChange={handleChange}
               />
             </div>
@@ -92,7 +96,7 @@ function EditTextileSingle(location: any) {
                 className="form-control"
                 name="burialnumber"
                 placeholder="Burial Number"
-                value={data?.burialnumber}
+                value={formData.burialnumber}
                 onChange={handleChange}
               />
             </div>
@@ -103,7 +107,7 @@ function EditTextileSingle(location: any) {
                 className="form-control"
                 name="estimatedperiod"
                 placeholder="estimatedperiod"
-                value={data?.estimatedperiod}
+                value={formData.estimatedperiod}
                 onChange={handleChange}
               />
             </div>
@@ -115,7 +119,7 @@ function EditTextileSingle(location: any) {
                 className="form-control"
                 name="sampledate"
                 placeholder="Sample Date"
-                value={data?.sampledate}
+                value={formData.sampledate}
                 onChange={handleChange}
               />
             </div>
@@ -127,7 +131,7 @@ function EditTextileSingle(location: any) {
                 className="form-control"
                 name="direction"
                 placeholder="Direction"
-                value={data?.direction}
+                value={formData.direction}
                 onChange={handleChange}
               />
             </div>
@@ -135,7 +139,7 @@ function EditTextileSingle(location: any) {
               <input
                 type="hidden"
                 name="photographeddate"
-                value={data?.photographeddate}
+                value={formData.photographeddate}
                 onChange={handleChange}
               ></input>
             </div>
@@ -143,7 +147,7 @@ function EditTextileSingle(location: any) {
               <input
                 type="hidden"
                 name="textileid"
-                value={data?.textileid}
+                value={formData.textileid}
                 onChange={handleChange}
               ></input>
             </div>
