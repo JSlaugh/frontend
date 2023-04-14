@@ -11,8 +11,8 @@ import BurialForm from './Components/Crud/burialForm';
 import TextileForm from './Components/Crud/textileForm';
 import BurialView from './Components/ViewSingle/burialView';
 import TextileView from './Components/ViewSingle/textileViewSingle';
-import EditBurialSingle from './Crud2/editBurialSingle';
-import EditTextileSingle from './Crud2/editTextileSingle';
+import EditBurialSingle from './Components/Crud2/editBurialSingle';
+import EditTextileSingle from './Components/Crud2/editTextileSingle';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Styles/styles.css';
 import { param } from 'jquery';
@@ -20,8 +20,8 @@ import UsersDataTableFilter from './Components/DataTables/userDataTable';
 import Unsupervised from './Components/machineLearning/unsupervised';
 import Supervised from './Components/machineLearning/supervised';
 import UserView from './Components/ViewSingle/userViewSingle';
-import EditUserSingle from './Crud2/editUserSIngle';
-
+import EditUserSingle from './Components/Crud2/editUserSIngle';
+import Login from './Components/Admin/login';
 function App() {
   const location = useLocation();
   console.log(location);
@@ -73,6 +73,7 @@ function App() {
             path="/tools/editUserSingle"
             element={<EditUserSingle {...location} />}
           ></Route>
+          <Route path="/tools/login" element={<Login />}></Route>
         </Route>
       </Routes>
     </div>

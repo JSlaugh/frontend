@@ -1,7 +1,11 @@
-import "../../Styles/User/styles.css";
-import { Link, Outlet } from "react-router-dom";
+import '../../Styles/User/styles.css';
+import { Link, Outlet } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { setUser, logout, selectUser } from '../../Store/Store';
+import '../../Styles/User/styles.css';
 
 function Layout() {
+  const CurrentUser = '';
   return (
     <div>
       <div id="wrapper">
@@ -242,43 +246,43 @@ function Layout() {
                 </li>
 
                 <div className="topbar-divider d-none d-sm-block"></div>
-
-                <li className="nav-item dropdown no-arrow">
-                  <a
-                    className="nav-link dropdown-toggle"
-                    href="#"
-                    id="userDropdown"
-                    role="button"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    {/* Insert Current Users Name */}
-                    <span className="mr-2 d-none d-lg-inline text-gray-600 small">
-                      Insert Current User Name
-                    </span>
-                  </a>
-
-                  <div
-                    className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                    aria-labelledby="userDropdown"
-                  >
-                    <a className="dropdown-item" href="#">
-                      <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                      Profile
-                    </a>
-                    <div className="dropdown-divider"></div>
+                {CurrentUser ? (
+                  <li className="nav-item dropdown no-arrow">
                     <a
-                      className="dropdown-item"
+                      className="nav-link dropdown-toggle"
                       href="#"
-                      data-toggle="modal"
-                      data-target="#logoutModal"
+                      id="userDropdown"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
                     >
-                      <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                      Logout
+                      {/* Insert Current Users Name */}
+
+                      <span className="mr-5 d-none d-lg-inline text-gray-600 small">
+                        <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        {CurrentUser ? CurrentUser : ''}
+                      </span>
                     </a>
-                  </div>
-                </li>
+
+                    <div
+                      className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                      aria-labelledby="userDropdown"
+                    >
+                      <a className="dropdown-item" href="#">
+                        <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Profile
+                      </a>
+                      <div className="dropdown-divider"></div>
+                      <button className="dropdown-item">
+                        <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Logout
+                      </button>
+                    </div>
+                  </li>
+                ) : (
+                  <li></li>
+                )}
               </ul>
             </nav>
             {/* This is where all future content goes */}
@@ -292,36 +296,6 @@ function Layout() {
       <a className="scroll-to-top rounded" href="#page-top">
         <i className="fas fa-angle-up"></i>
       </a>
-
-      <div
-        className="modal fade"
-        id="logoutModal"
-        role="dialog"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">
-                Ready to Leave?
-              </h5>
-              <button
-                className="close"
-                type="button"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">×</span>
-              </button>
-            </div>
-            <div className="modal-body">
-              Select "Logout" below if you are ready to end your current
-              session.
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

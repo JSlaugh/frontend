@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
-import { Burialmain } from '../Models/burialmain';
+import { Burialmain } from '../../Models/burialmain';
 
 function EditBurialSingle(location: any) {
   const [data, setData] = useState<Burialmain>();
