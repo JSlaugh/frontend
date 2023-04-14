@@ -1,11 +1,12 @@
-import "../../Styles/User/styles.css";
-import { Link, Outlet } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { setUser, logout, selectUser } from "../../Store/Store";
+import { Link, Outlet } from 'react-router-dom';
+import { setUser, logout, selectUser } from '../../Store/userSlice';
+import '../../Styles/User/styles.css';
+import { useSelector, useDispatch } from 'react-redux';
 
 function Layout() {
   const dispatch = useDispatch();
   const CurrentUser = useSelector(selectUser);
+  console.log(CurrentUser);
   return (
     <div>
       <div id="wrapper">
@@ -18,7 +19,7 @@ function Layout() {
             href="/"
           >
             <div className="sidebar-brand-icon">
-              <i className="fas fa-chart-pyramid"></i>
+              <i className="fas fa-hippo"></i>
             </div>
             <div className="sidebar-brand-text mx-3">Fag el-Gamous</div>
           </a>
@@ -26,10 +27,9 @@ function Layout() {
           <hr className="sidebar-divider my-0" />
 
           <li className="nav-item">
-            <a className="nav-link" href="/tools">
-              <i className="fas fa-fw fa-home"></i>
-              <span>Instructions</span>
-            </a>
+            <Link className="nav-link" to="/tools">
+              <i className="fas fa-fw fa-home"></i>Instructions
+            </Link>
           </li>
 
           <hr className="sidebar-divider" />
@@ -258,7 +258,7 @@ function Layout() {
 
                       <span className="mr-5 d-none d-lg-inline text-gray-600 small">
                         <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                        {CurrentUser ? CurrentUser : ""}
+                        {CurrentUser ? CurrentUser : ''}
                       </span>
                     </a>
 
