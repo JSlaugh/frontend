@@ -26,10 +26,9 @@ function Layout() {
           <hr className="sidebar-divider my-0" />
 
           <li className="nav-item">
-            <a className="nav-link" href="/tools">
-              <i className="fas fa-fw fa-home"></i>
-              <span>Instructions</span>
-            </a>
+            <Link className="nav-link" to="/tools">
+              <i className="fas fa-fw fa-home"></i>Instructions
+            </Link>
           </li>
 
           <hr className="sidebar-divider" />
