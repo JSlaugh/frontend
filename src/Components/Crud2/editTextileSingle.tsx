@@ -22,10 +22,6 @@ function EditTextileSingle(location: any) {
       });
   };
 
-  const handleChange = (event: any) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
-  };
-
   useEffect(() => {
     let temp = location.state.textileData;
     setData(temp);
@@ -54,97 +50,109 @@ function EditTextileSingle(location: any) {
   });
   return (
     <div className="container">
-        <form onSubmit={handleSubmit}>
-                <div className="container">
-                    <div className='row '>
-                        <div>
-                            <input type='hidden' name='id' value={data?.id} onChange={handleChange}></input>
-                        </div>
-                        <div className ="form-group col card p-3 bg-light">
-                            <label >Locale</label>
-                            <input 
-                              type="string" 
-                              className="form-control" 
-                              name="locale" 
-                              placeholder="Locale" 
-                              value={data?.Locale} 
-                              onChange={handleChange}/>
-                        </div>
+      <form onSubmit={handleSubmit}>
+        <div className="container">
+          <div className="row ">
+            <div>
+              <input
+                type="hidden"
+                name="id"
+                value={data?.id}
+                onChange={handleChange}
+              ></input>
+            </div>
+            <div className="form-group col card p-3 bg-light">
+              <label>Locale</label>
+              <input
+                type="string"
+                className="form-control"
+                name="locale"
+                placeholder="Locale"
+                value={data?.Locale}
+                onChange={handleChange}
+              />
+            </div>
 
-                        <div className="form-group col card p-3 bg-light">
-                            <label>Description</label>
-                            <input 
-                              type="string" 
-                              className="form-control" 
-                              name="description" 
-                              placeholder="Description" 
-                              value={data?.description} 
-                              onChange={handleChange}/>
-                        </div>
-                        <div className="w-100"></div>
-                        <div className="form-group col card p-3 bg-light">
-                            <label>Burial Number</label>
-                            <input 
-                              type="string" 
-                              className="form-control" 
-                              name="burialnumber" 
-                              placeholder="Burial Number" 
-                              value={data?.burialnumber}
-                              onChange={handleChange}/>
-                        </div>
-                        <div className="form-group col card p-3 bg-light">
-                            <label>Estimated Period</label>
-                            <input 
-                              type="string" 
-                              className="form-control" 
-                              name="estimatedperiod" 
-                              placeholder="estimatedperiod" 
-                              value={data?.estimatedperiod} 
-                              onChange={handleChange}/>
-                        </div>
-                        <div className="w-100"></div>
-                        <div className="form-group col card p-3 bg-light">
-                            <label>Sample Date</label>
-                            <input 
-                              type="string" 
-                              className="form-control" 
-                              name="sampledate" 
-                              placeholder="Sample Date" 
-                              value={data?.sampledate} 
-                              onChange={handleChange}/>
-                        </div>      
-        
-                        <div className="form-group col card p-3 bg-light">
-                            <label>Direction</label>
-                            <input 
-                              type="string" 
-                              className="form-control" 
-                              name="direction" 
-                              placeholder="Direction" 
-                              value={data?.direction} 
-                              onChange={handleChange}/>
-                        </div> 
-                        <div>
-                            <input 
-                              type='hidden' 
-                              name='photographeddate' 
-                              value={data?.photographeddate} 
-                              onChange={handleChange}></input>
-                        </div>     
-                        <div>
-                            <input 
-                              type='hidden' 
-                              name='textileid' 
-                              value={data?.textileid} 
-                              onChange={handleChange}></input>
-                        </div>   
+            <div className="form-group col card p-3 bg-light">
+              <label>Description</label>
+              <input
+                type="string"
+                className="form-control"
+                name="description"
+                placeholder="Description"
+                value={data?.description}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="w-100"></div>
+            <div className="form-group col card p-3 bg-light">
+              <label>Burial Number</label>
+              <input
+                type="string"
+                className="form-control"
+                name="burialnumber"
+                placeholder="Burial Number"
+                value={data?.burialnumber}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-group col card p-3 bg-light">
+              <label>Estimated Period</label>
+              <input
+                type="string"
+                className="form-control"
+                name="estimatedperiod"
+                placeholder="estimatedperiod"
+                value={data?.estimatedperiod}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="w-100"></div>
+            <div className="form-group col card p-3 bg-light">
+              <label>Sample Date</label>
+              <input
+                type="string"
+                className="form-control"
+                name="sampledate"
+                placeholder="Sample Date"
+                value={data?.sampledate}
+                onChange={handleChange}
+              />
+            </div>
 
-                        
-                        
-                    </div>
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                </div>
-            </form>
+            <div className="form-group col card p-3 bg-light">
+              <label>Direction</label>
+              <input
+                type="string"
+                className="form-control"
+                name="direction"
+                placeholder="Direction"
+                value={data?.direction}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <input
+                type="hidden"
+                name="photographeddate"
+                value={data?.photographeddate}
+                onChange={handleChange}
+              ></input>
+            </div>
+            <div>
+              <input
+                type="hidden"
+                name="textileid"
+                value={data?.textileid}
+                onChange={handleChange}
+              ></input>
+            </div>
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
+        </div>
+      </form>
     </div>
   );
 }
