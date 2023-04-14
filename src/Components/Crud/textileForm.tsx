@@ -7,7 +7,7 @@ function TextileForm() {
     console.log(formData);
     axios
       .put(
-        process.env.REACT_APP_BACK_END_URL + '/api/Fagelgamous/updateTextile',
+        process.env.REACT_APP_BACK_END_URL + '/api/Fagelgamous/createTextile',
         formData,
       )
       .then((response) => {
