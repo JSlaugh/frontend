@@ -1,7 +1,7 @@
-import { Link, Outlet } from "react-router-dom";
-import { setUser, logout, selectUser } from "../../Store/userSlice";
-import "../../Styles/User/styles.css";
-import { useSelector, useDispatch } from "react-redux";
+import { Link, Outlet } from 'react-router-dom';
+import { setUser, logout, selectUser } from '../../Store/userSlice';
+import '../../Styles/User/styles.css';
+import { useSelector, useDispatch } from 'react-redux';
 
 function Layout() {
   const dispatch = useDispatch();
@@ -35,41 +35,43 @@ function Layout() {
           <hr className="sidebar-divider" />
 
           <div className="sidebar-heading">Navigation</div>
-
+          {CurrentUser.length > 0 ? (
+            <li className="nav-item">
+              <a
+                className="nav-link collapsed"
+                href="#"
+                data-toggle="collapse"
+                data-target="#collapseTwo"
+                aria-expanded="true"
+                aria-controls="collapseTwo"
+              >
+                <i className="fa-solid fa-person-digging"></i>
+                <span>CRUD</span>
+              </a>
+              <div
+                id="collapseTwo"
+                className="collapse"
+                aria-labelledby="headingTwo"
+                data-parent="#accordionSidebar"
+              >
+                <div className="bg-white py-2 collapse-inner rounded">
+                  {/* <h6 className="collapse-header">Custom Components:</h6> */}
+                  <Link className="collapse-item" to="/tools/burialForm">
+                    Burial
+                  </Link>
+                  <Link className="collapse-item" to="/tools/textileForm">
+                    Textiles
+                  </Link>
+                </div>
+              </div>
+            </li>
+          ) : (
+            <li></li>
+          )}
           <li className="nav-item">
             <a
               className="nav-link collapsed"
               href="#"
-              data-toggle="collapse"
-              data-target="#collapseTwo"
-              aria-expanded="true"
-              aria-controls="collapseTwo"
-            >
-              <i className="fa-solid fa-person-digging"></i>
-              <span>CRUD</span>
-            </a>
-            <div
-              id="collapseTwo"
-              className="collapse"
-              aria-labelledby="headingTwo"
-              data-parent="#accordionSidebar"
-            >
-              <div className="bg-white py-2 collapse-inner rounded">
-                {/* <h6 className="collapse-header">Custom Components:</h6> */}
-                <Link className="collapse-item" to="/tools/burialForm">
-                  Burial
-                </Link>
-                <Link className="collapse-item" to="/tools/textileForm">
-                  Textiles
-                </Link>
-              </div>
-            </div>
-          </li>
-
-          <li className="nav-item">
-            <a
-              className="nav-link collapsed"
-              href=""
               data-toggle="collapse"
               data-target="#collapsePages"
               aria-expanded="true"
@@ -132,42 +134,42 @@ function Layout() {
               </div>
             </div>
           </li>
-
-          <li className="nav-item">
-            <a
-              className="nav-link collapsed"
-              href="#"
-              data-toggle="collapse"
-              data-target="#collapseUtilities"
-              aria-expanded="true"
-              aria-controls="collapseUtilities"
-            >
-              <i className="fas fa-fw fa-wrench"></i>
-              <span>Admin</span>
-            </a>
-            <div
-              id="collapseUtilities"
-              className="collapse"
-              aria-labelledby="headingUtilities"
-              data-parent="#accordionSidebar"
-            >
-              <div className="bg-white py-2 collapse-inner rounded">
-                {/* <h6 className="collapse-header">Custom Utilities:</h6> */}
-                <Link
-                  className="collapse-item"
-                  to="/tools/usersDataTableFilter"
-                >
-                  User Table
-                </Link>
-                <Link
-                  className="collapse-item"
-                  to="/tools/addUser"
-                >
-                  Add User
-                </Link>
+          {CurrentUser.length > 0 ? (
+            <li className="nav-item">
+              <a
+                className="nav-link collapsed"
+                href="#"
+                data-toggle="collapse"
+                data-target="#collapseUtilities"
+                aria-expanded="true"
+                aria-controls="collapseUtilities"
+              >
+                <i className="fas fa-fw fa-wrench"></i>
+                <span>Admin</span>
+              </a>
+              <div
+                id="collapseUtilities"
+                className="collapse"
+                aria-labelledby="headingUtilities"
+                data-parent="#accordionSidebar"
+              >
+                <div className="bg-white py-2 collapse-inner rounded">
+                  {/* <h6 className="collapse-header">Custom Utilities:</h6> */}
+                  <Link
+                    className="collapse-item"
+                    to="/tools/usersDataTableFilter"
+                  >
+                    User Table
+                  </Link>
+                  <Link className="collapse-item" to="/tools/addUser">
+                    Add User
+                  </Link>
+                </div>
               </div>
-            </div>
-          </li>
+            </li>
+          ) : (
+            <li></li>
+          )}
           {/* <li className="nav-item">
             <a className="nav-link" href="charts.html">
               <i className="fas fa-fw fa-chart-area"></i>
@@ -240,7 +242,7 @@ function Layout() {
                 </li>
 
                 <div className="topbar-divider d-none d-sm-block"></div>
-                {CurrentUser ? (
+                {CurrentUser.length > 0 ? (
                   <li className="nav-item dropdown no-arrow">
                     <a
                       className="nav-link dropdown-toggle"
@@ -255,7 +257,7 @@ function Layout() {
 
                       <span className="mr-5 d-none d-lg-inline text-gray-600 small">
                         <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                        {CurrentUser ? CurrentUser : ""}
+                        {CurrentUser.length > 0 ? CurrentUser[1] : ''}
                       </span>
                     </a>
 
@@ -263,11 +265,6 @@ function Layout() {
                       className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                       aria-labelledby="userDropdown"
                     >
-                      <a className="dropdown-item" href="#">
-                        <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Profile
-                      </a>
-                      <div className="dropdown-divider"></div>
                       <button
                         className="dropdown-item"
                         onClick={() => dispatch(logout())}

@@ -53,7 +53,7 @@ function ConfirmDeletePage(location: any) {
         .catch((error) => {
           console.error('There was a problem with the axios operation:', error);
         });
-      window.location.href = '/';
+      window.location.href = '/tools';
     }
   };
   return (

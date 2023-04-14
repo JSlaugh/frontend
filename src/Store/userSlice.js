@@ -12,9 +12,9 @@ const userSlice = createSlice({
       console.log(selectUser);
     },
     logout: (state) => {
-      state[0] = '';
-      state[1] = '';
-      state[2] = '';
+      state.pop();
+      state.pop();
+      state.pop();
     },
   },
 });

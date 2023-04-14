@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 import '../../Styles/User/styles.css';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { Burialmain } from '../../Models/burialmain';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../Store/userSlice';
 
 function BurialView(location: any) {
   const [data, setData] = useState<Burialmain>();
-
+  const CurrentUser = useSelector(selectUser);
   useEffect(() => {
     // Google Analytics
     let temp = location.state.burialData;
@@ -192,20 +194,26 @@ function BurialView(location: any) {
               <h3>Textiles</h3>
             </div>
           </div>
-          <Link
-            className="mb-3 btn-primary btn w-100"
-            to="/tools/editBurialSingle"
-            state={{ burialData: data }}
-          >
-            Edit
-          </Link>
-          <Link
-            className="mb-3 btn-secondary btn w-100"
-            to="/tools/delete"
-            state={{ burialData: data }}
-          >
-            Delete
-          </Link>
+          {CurrentUser.length > 0 ? (
+            <div>
+              <Link
+                className="mb-3 btn-primary btn w-100"
+                to="/tools/editBurialSingle"
+                state={{ burialData: data }}
+              >
+                Edit
+              </Link>
+              <Link
+                className="mb-3 btn-secondary btn w-100"
+                to="/tools/delete"
+                state={{ burialData: data }}
+              >
+                Delete
+              </Link>
+            </div>
+          ) : (
+            <li></li>
+          )}
         </div>
       </div>
     </div>
