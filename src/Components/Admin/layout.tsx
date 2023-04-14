@@ -1,5 +1,5 @@
-import '../../Styles/User/styles.css';
-import { Link, Outlet } from 'react-router-dom';
+import "../../Styles/User/styles.css";
+import { Link, Outlet } from "react-router-dom";
 
 function Layout() {
   return (
@@ -30,7 +30,7 @@ function Layout() {
 
           <hr className="sidebar-divider" />
 
-          <div className="sidebar-heading">Interface</div>
+          <div className="sidebar-heading">Navigation</div>
 
           <li className="nav-item">
             <a
@@ -51,13 +51,13 @@ function Layout() {
               data-parent="#accordionSidebar"
             >
               <div className="bg-white py-2 collapse-inner rounded">
-                <h6 className="collapse-header">Custom Components:</h6>
+                {/* <h6 className="collapse-header">Custom Components:</h6> */}
                 <Link className="collapse-item" to="/tools/burialForm">
                   Burial
                 </Link>
-                <a className="collapse-item" href="/tools/textileForm">
+                <Link className="collapse-item" to="/tools/textileForm">
                   Textiles
-                </a>
+                </Link>
               </div>
             </div>
           </li>
@@ -72,7 +72,7 @@ function Layout() {
               aria-controls="collapsePages"
             >
               <i className="fas fa-fw fa-table"></i>
-              <span>Filtered Datatables</span>
+              <span>Filtered Tables/Accounts</span>
             </a>
             <div
               id="collapsePages"
@@ -81,27 +81,30 @@ function Layout() {
               data-parent="#accordionSidebar"
             >
               <div className="bg-white py-2 collapse-inner rounded">
-                <h6 className="collapse-header">Login Screens:</h6>
-                <a className="collapse-item" href="login.html">
+                <h6 className="collapse-header">Account Information</h6>
+                <Link className="collapse-item" to="login.html">
                   Login
-                </a>
-                <a className="collapse-item" href="register.html">
-                  Register
-                </a>
+                </Link>
+                <Link className="collapse-item" to="register.html">
+                  Login
+                </Link>
                 <a className="collapse-item" href="forgot-password.html">
                   Forgot Password
                 </a>
+                <Link className="collapse-item" to="forgot-password.html">
+                  Forgot Password
+                </Link>
                 <div className="collapse-divider"></div>
-                <h6 className="collapse-header">Other Pages:</h6>
-                <a
+                <h6 className="collapse-header">Filtered Tables</h6>
+                <Link
                   className="collapse-item"
-                  href="/tools/textilesDataTableFilter"
+                  to="/tools/textilesDataTableFilter"
                 >
                   Textiles Filtered Table
-                </a>
-                <a className="collapse-item" href="/tools/burialFilterTable">
+                </Link>
+                <Link className="collapse-item" to="/tools/burialFilterTable">
                   Burial Filtered Table
-                </a>
+                </Link>
               </div>
             </div>
           </li>
@@ -125,12 +128,12 @@ function Layout() {
               data-parent="#accordionSidebar"
             >
               <div className="bg-white py-2 collapse-inner rounded">
-                <a className="collapse-item" href="/tools/supervised">
+                <Link className="collapse-item" to="/tools/supervised">
                   Supervised
-                </a>
-                <a className="collapse-item" href="/tools/unsupervised">
+                </Link>
+                <Link className="collapse-item" to="/tools/unsupervised">
                   Unsupervised
-                </a>
+                </Link>
               </div>
             </div>
           </li>
@@ -154,17 +157,23 @@ function Layout() {
               data-parent="#accordionSidebar"
             >
               <div className="bg-white py-2 collapse-inner rounded">
-                <h6 className="collapse-header">Custom Utilities:</h6>
-                <a className="collapse-item" href="/tools/usersDataTableFilter">
+                {/* <h6 className="collapse-header">Custom Utilities:</h6> */}
+                <Link
+                  className="collapse-item"
+                  to="/tools/usersDataTableFilter"
+                >
                   User Table
-                </a>
-                <a className="collapse-item" href="utilities-border.html">
+                </Link>
+                <Link
+                  className="collapse-item"
+                  to="/tools/usersDataTableFilter"
+                >
                   Add User
-                </a>
+                </Link>
               </div>
             </div>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <a className="nav-link" href="charts.html">
               <i className="fas fa-fw fa-chart-area"></i>
               <span>Charts</span>
@@ -176,16 +185,16 @@ function Layout() {
               <i className="fas fa-fw fa-table"></i>
               <span>Tables</span>
             </a>
-          </li>
+          </li> */}
 
           <hr className="sidebar-divider d-none d-md-block" />
 
-          <div className="text-center d-none d-md-inline">
+          {/* <div className="text-center d-none d-md-inline">
             <button
               className="rounded-circle border-0"
               id="sidebarToggle"
             ></button>
-          </div>
+          </div> */}
         </ul>
 
         <div id="content-wrapper" className="d-flex flex-column">
