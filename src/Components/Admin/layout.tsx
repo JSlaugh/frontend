@@ -1,12 +1,13 @@
 import '../../Styles/User/styles.css';
 import { Link, Outlet } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { setUser, logout, selectUser } from '../../Store/Store';
+import { setUser, logout, selectUser } from '../../Store/userSlice';
 import '../../Styles/User/styles.css';
 
 function Layout() {
   const dispatch = useDispatch();
   const CurrentUser = useSelector(selectUser);
+  console.log(CurrentUser);
   return (
     <div>
       <div id="wrapper">

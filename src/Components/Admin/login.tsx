@@ -4,7 +4,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { selectUser, setUser } from '../../Store/Store';
+import { selectUser, setUser } from '../../Store/userSlice';
 function Login(location: any) {
   const backendUrl = process.env.REACT_APP_BACK_END_URL;
   const user = useSelector((state) => state.User);
@@ -13,22 +13,24 @@ function Login(location: any) {
     event.preventDefault();
     // dispatch(setUser('Bob', 'bob', 'bob'));
     console.log(formData);
-    fetch(backendUrl + '/api/Authorization/editUser', {
-      method: 'PUT',
-      body: formData,
-    })
+    let userInfo = [];
+
+    let resp = await axios
+      .post(backendUrl + '/api/Authorization/verifyUser', formData)
       .then((response) => {
-        if (!response.ok) {
+        if (!response.data) {
           throw new Error('Network response was not ok');
         }
-        return response.json();
+        return response.data;
       })
-      .then((data) => {
-        console.log(data);
+      .then((response) => {
+        return response;
       })
       .catch((error) => {
-        console.error('There was a problem with the fetch operation:', error);
+        console.error('There was a problem with the Axios request:', error);
       });
+    console.log(resp);
+    dispatch(setUser([resp.role.roleName, resp.firstName, resp.email]));
   };
 
   const handleChange = (event: any) => {
