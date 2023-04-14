@@ -8,14 +8,23 @@ function EditUserSingle(location: any) {
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-
-    try {
-      console.log(formData);
-      // const response = await axios.post('http://localhost:4000/post', formData);
-      // console.log(response.data); // do something with the response data
-    } catch (error) {
-      console.error(error);
-    }
+    console.log(formData);
+    fetch('https://localhost:4000/api/Authorization/editUser', {
+      method: 'PUT',
+      body: formData,
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
   };
 
   const handleChange = (event: any) => {
@@ -27,6 +36,7 @@ function EditUserSingle(location: any) {
     setData(temp);
     console.log(data);
     setFormData({
+      adminEmail: 'presentation@test.com',
       userId: data?.id,
       userEmail: data?.email,
       userFirstName: data?.firstName,
@@ -35,7 +45,7 @@ function EditUserSingle(location: any) {
   }, [data, location.state.userData]);
 
   const [formData, setFormData] = useState({
-    adminEmail: '',
+    adminEmail: 'presentation@test.com',
     userId: '',
     userEmail: '',
     userFirstName: '',
