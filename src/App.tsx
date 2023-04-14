@@ -1,31 +1,4 @@
-<<<<<<< HEAD
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Home from './Components/Home/landing';
-import { Outlet, Route, Routes, useLocation } from 'react-router-dom';
-import InfoPage from './Components/Admin/infoPage';
-import Layout from './Components/Admin/layout';
-import BurialDataTableFiltered from './Components/DataTables/burialDataTableFiltered';
-import TextilesDataTableFilter from './Components/DataTables/textilesDataTableFiltered';
-import BurialForm from './Components/Crud/burialForm';
-import TextileForm from './Components/Crud/textileForm';
-import BurialView from './Components/ViewSingle/burialView';
-import TextileView from './Components/ViewSingle/textileViewSingle';
-import EditBurialSingle from './Components/Crud2/editBurialSingle';
-import EditTextileSingle from './Components/Crud2/editTextileSingle';
-import AddUser from './Components/Admin/addUser'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './Styles/styles.css';
-import { param } from 'jquery';
-import UsersDataTableFilter from './Components/DataTables/userDataTable';
-import Unsupervised from './Components/machineLearning/unsupervised';
-import Supervised from './Components/machineLearning/supervised';
-import UserView from './Components/ViewSingle/userViewSingle';
-import EditUserSingle from './Components/Crud2/editUserSIngle';
-import Login from './Components/Admin/login';
-import { BrowserRouter } from 'react-router-dom';
-=======
+
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
@@ -52,7 +25,7 @@ import EditUserSingle from "./Components/Crud2/editUserSIngle";
 import Login from "./Components/Admin/login";
 import { BrowserRouter } from "react-router-dom";
 import ConfirmDeletePage from "./Components/Admin/confirmDelete";
->>>>>>> 33997b469dc5ea90596aac5991dce17a29896920
+import AddUser from './Components/Admin/addUser'
 function App() {
   const location = useLocation();
   console.log(location);
