@@ -18,9 +18,47 @@ function TextileView(location: any) {
 
   return (
     <div>
-      <h2>Textile SIngle</h2>
+      <h2>Textile Single</h2>
       <div className="container">
-        <div className="row"></div>
+        <div className="row">
+          <div className="col-3">
+            <p className="card-subtitle font-weight-bold">Description</p>
+            <p>{data?.description}</p>
+          </div>
+          <div className="col-3">
+            <p className="card-subtitle font-weight-bold">Burial Number</p>
+            <p>{data?.burialnumber}</p>
+          </div>
+          <div className="col-3">
+            <p className="card-subtitle font-weight-bold">Estimated Period</p>
+            <p>{data?.estimatedperiod}</p>
+          </div>
+          <div className="col-3">
+            <p className="card-subtitle font-weight-bold">Direction</p>
+            <p>{data?.direction}</p>
+          </div>
+          <div className="col-3">
+            <p className="card-subtitle font-weight-bold">Sample Date</p>
+            <p>{data?.sampledate ? data.sampledate.toString() : 'N/A'}</p>
+          </div>
+          <div className="col-3">
+            <p className="card-subtitle font-weight-bold">Photographed Date</p>
+            <p>
+              {data?.photographeddate
+                ? data.photographeddate.toString()
+                : 'N/A'}
+            </p>
+          </div>
+          <div className="col-3">
+            <p className="card-subtitle font-weight-bold">Textile ID</p>
+            <p>{data?.textileid}</p>
+          </div>
+          <div className="col-3">
+            <p className="card-subtitle font-weight-bold">Locale</p>
+            <p>{data?.locale}</p>
+          </div>
+        </div>
+
         {CurrentUser.length > 0 ? (
           <div>
             <Link
